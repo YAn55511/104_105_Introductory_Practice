@@ -1,0 +1,275 @@
+/* ----- Базовые стили ----- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+    background: #f4f7fc;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.page-wrap {
+    max-width: 820px;
+    width: 100%;
+    background: white;
+    border-radius: 2rem;
+    box-shadow: 0 20px 40px -12px rgba(0, 20, 40, 0.25);
+    padding: 2.5rem 2.8rem;
+    transition: box-shadow 0.25s ease;
+}
+
+.page-wrap:hover {
+    box-shadow: 0 30px 55px -14px rgba(0, 20, 40, 0.35);
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #0b1b32;
+    margin-bottom: 0.2rem;
+}
+
+.subhead {
+    color: #4a5b6e;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    border-left: 4px solid #3a7bd5;
+    padding-left: 1rem;
+}
+
+/* ----- Навигация (анимация ссылок) ----- */
+.demo-nav {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2.2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e3eaf2;
+}
+
+.demo-nav a {
+    text-decoration: none;
+    color: #1f3a5f;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.demo-nav a:hover {
+    color: #0f2b4f;
+    border-bottom-color: #3a7bd5;
+    transform: translateY(-1px);
+}
+
+.demo-nav a:focus-visible {
+    outline: 2px solid #3a7bd5;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* ----- Сетка формы (2 колонки) ----- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2rem;
+}
+
+/* Группа занимает полную ширину */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+/* ----- Подписи ----- */
+.form-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #1f3a5f;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.form-label .required {
+    color: #c94a4a;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+/* ----- Поля ввода ----- */
+.form-input {
+    background: #f9fcff;
+    border: 1.5px solid #d9e2ed;
+    border-radius: 14px;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #0f1e33;
+    transition: background 0.2s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+    width: 100%;
+    outline: none;
+}
+
+/* :focus — кастомный стиль */
+.form-input:focus {
+    background: #ffffff;
+    border-color: #3a7bd5;
+    box-shadow: 0 0 0 4px rgba(58, 123, 213, 0.2);
+    transform: scale(1.01);
+}
+
+/* :hover — лёгкий отклик */
+.form-input:hover {
+    border-color: #7fa3d6;
+    background: #f6faff;
+}
+
+/* Чекбоксы и радио */
+.form-input[type="checkbox"],
+.form-input[type="radio"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    accent-color: #3a7bd5;
+    margin-right: 0.25rem;
+    transform: scale(1);
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+    border-radius: 6px;
+}
+
+.form-input[type="checkbox"]:hover,
+.form-input[type="radio"]:hover {
+    transform: scale(1.1);
+}
+
+.form-input[type="checkbox"]:focus,
+.form-input[type="radio"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(58, 123, 213, 0.3);
+    transform: scale(1.05);
+}
+
+/* Горизонтальная группа для чекбоксов/радио */
+.inline-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.8rem;
+    padding-top: 0.2rem;
+}
+
+.inline-group .form-label {
+    font-weight: 400;
+    gap: 0.2rem;
+    cursor: pointer;
+}
+
+/* Ползунок range */
+.form-input[type="range"] {
+    padding: 0;
+    background: transparent;
+    border: none;
+    height: 6px;
+    accent-color: #3a7bd5;
+    cursor: pointer;
+}
+
+.form-input[type="range"]:focus {
+    transform: scale(1.01);
+    box-shadow: none;
+    background: transparent;
+}
+
+/* ----- Кнопка отправки ----- */
+.submit-wrapper {
+    margin-top: 0.2rem;
+}
+
+.submit-btn {
+    background: #1f3a5f;
+    border: none;
+    border-radius: 40px;
+    padding: 0.85rem 2.2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(31, 58, 95, 0.2);
+    width: fit-content;
+    min-width: 160px;
+}
+
+.submit-btn:hover {
+    background: #2b4b7a;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px -8px rgba(31, 58, 95, 0.4);
+}
+
+.submit-btn:active {
+    transform: scale(0.97) translateY(0px);
+    box-shadow: 0 4px 8px rgba(31, 58, 95, 0.3);
+}
+
+.submit-btn:focus-visible {
+    outline: 3px solid #3a7bd5;
+    outline-offset: 4px;
+}
+
+/* ----- Карточка проекта (анимация) ----- */
+.project-card {
+    background: #f0f5fe;
+    border-radius: 20px;
+    padding: 1rem 1.5rem;
+    margin: 1.8rem 0 0.5rem 0;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    border: 1px solid transparent;
+}
+
+.project-card:hover {
+    background: #e6effb;
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px -10px rgba(31, 58, 95, 0.15);
+    border-color: #b8cde0;
+}
+
+.project-card p {
+    color: #1f3a5f;
+    font-weight: 500;
+}
+
+/* ----- Адаптивность ----- */
+@media (max-width: 640px) {
+    .page-wrap {
+        padding: 1.8rem 1.2rem;
+    }
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    .form-group.full-width {
+        grid-column: 1;
+    }
+    .submit-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
