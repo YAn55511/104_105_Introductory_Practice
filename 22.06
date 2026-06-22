@@ -1,0 +1,69 @@
+console.log('========== Задача 1: Умный пропускной пункт ==========');
+let age = 12;
+let height = 135;
+
+if (age < 8) {
+    console.log('Вход запрещен, слишком мал');
+} else if (age >= 8 && age <= 18 && height < 140) {
+    console.log('Вход только с родителями');
+} else if (age > 18 || (height >= 140 && age >= 8)) {
+    console.log('Добро пожаловать на аттракцион!');
+}
+console.log(`Возраст: ${age}, Рост: ${height}`);
+
+console.log('\n========== Задача 2: Анализатор последовательности ==========');
+let sum = 0;
+for (let i = 1; i <= 200; i++) {
+    if (i % 3 === 0 && i % 5 !== 0) {
+        sum += i;
+    }
+}
+console.log(`Сумма чисел от 1 до 200, которые делятся на 3, но не делятся на 5: ${sum}`);
+
+console.log('\n========== Задача 3: Шифратор ==========');
+for (let i = 15; i >= 1; i--) {
+    if (i % 2 === 0) {
+        console.log(i);
+    } else {
+        console.log(i * 2);
+    }
+}
+
+console.log('\n========== Задача 4: Финансовый симулятор ==========');
+let capital = 10000;
+for (let year = 1; year <= 10; year++) {
+    capital = capital + capital * 0.08;
+}
+console.log(`Итоговая сумма через 10 лет: ${Math.round(capital)} рублей`);
+
+console.log('\n========== Задача 5: Строитель лесенки ==========');
+let ladder = '';
+for (let i = 1; i <= 6; i++) {
+    ladder += '#';
+    console.log(ladder);
+}
+
+console.log('\n========== Задача 6: Космический передатчик ==========');
+for (let i = 1; i <= 50; i++) {
+    if (i % 4 === 0 && i % 7 === 0) {
+        console.log('BeepBoop');
+    } else if (i % 4 === 0) {
+        console.log('Beep');
+    } else if (i % 7 === 0) {
+        console.log('Boop');
+    } else {
+        console.log(i);
+    }
+}
+
+console.log('\n========== Задача 7: Гипотеза Сиракуз ==========');
+let n = 27;
+console.log(`Начальное значение: ${n}`);
+for (let step = 1; step <= 15; step++) {
+    if (n % 2 === 0) {
+        n = n / 2;
+    } else {
+        n = n * 3 + 1;
+    }
+    console.log(`Шаг ${step}: ${n}`);
+}
