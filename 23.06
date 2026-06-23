@@ -1,0 +1,87 @@
+const portfolioData = {
+  profile: {
+    name: "Алексей Иванов",
+    profession: "Full-Stack Developer",
+    age: 28
+  },
+  projects: [
+    {
+      id: 1,
+      title: "Портал путешествий",
+      category: "Веб",
+      likes: 245,
+      technologies: ["React", "Node.js", "MongoDB", "CSS"]
+    },
+    {
+      id: 2,
+      title: "Логотип для стартапа",
+      category: "Дизайн",
+      likes: 89,
+      technologies: ["Figma", "Illustrator", "Photoshop"]
+    },
+    {
+      id: 3,
+      title: "Микросервис авторизации",
+      category: "Бекенд",
+      likes: 134,
+      technologies: ["Go", "PostgreSQL", "gRPC", "Docker"]
+    },
+    {
+      id: 4,
+      title: "Интернет-магазин одежды",
+      category: "Веб",
+      likes: 312,
+      technologies: ["Vue.js", "Vuex", "Node.js", "MongoDB", "CSS"]
+    },
+    {
+      id: 5,
+      title: "Баннер для соцсетей",
+      category: "Дизайн",
+      likes: 56,
+      technologies: ["Photoshop", "Illustrator"]
+    },
+    {
+      id: 6,
+      title: "API для чат-бота",
+      category: "Бекенд",
+      likes: 198,
+      technologies: ["Python", "FastAPI", "Redis", "Docker"]
+    }
+  ],
+  preferences: new Map([
+    ["theme", "dark"],
+    ["language", "ru"]
+  ])
+};
+
+const profileKeys = Object.keys(portfolioData.profile);
+console.log("Ключи профиля:", profileKeys);
+
+const popularProjects = portfolioData.projects.filter(
+  project => project.likes > 100
+);
+
+const popularProjectsStrings = popularProjects.map(
+  project => `Проект: ${project.title} из категории ${project.category}`
+);
+
+console.log("Популярные проекты (>100 лайков):", popularProjectsStrings);
+
+let totalLikes = 0;
+
+portfolioData.projects.forEach(project => {
+  totalLikes += project.likes;
+});
+
+console.log(`Общее число лайков: ${totalLikes}`);
+
+const techSet = new Set();
+
+portfolioData.projects.forEach(project => {
+  project.technologies.forEach(tech => {
+    techSet.add(tech);
+  });
+});
+
+console.log("Уникальные технологии (Set):", techSet);
+console.log("Уникальные технологии (массив):", Array.from(techSet));
