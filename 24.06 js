@@ -1,0 +1,74 @@
+const projects = [
+    {
+        id: 1,
+        title: "Интернет-магазин",
+        category: "Веб-разработка",
+        description: "Полнофункциональный интернет-магазин с корзиной и оплатой",
+        image: "https://via.placeholder.com/300x200",
+        year: 2024
+    },
+    {
+        id: 2,
+        title: "Мобильное приложение для доставки",
+        category: "Мобильная разработка",
+        description: "Кроссплатформенное приложение для заказа еды",
+        image: "https://via.placeholder.com/300x200",
+        year: 2023
+    },
+    {
+        id: 3,
+        title: "Система управления задачами",
+        category: "Веб-разработка",
+        description: "Trello-подобная система с drag-and-drop функционалом",
+        image: "https://via.placeholder.com/300x200",
+        year: 2024
+    },
+    {
+        id: 4,
+        title: "Чат-бот на AI",
+        category: "Искусственный интеллект",
+        description: "Умный чат-бот для автоматизации поддержки клиентов",
+        image: "https://via.placeholder.com/300x200",
+        year: 2024
+    },
+    {
+        id: 5,
+        title: "Аналитическая панель",
+        category: "Data Science",
+        description: "Интерактивная панель для визуализации бизнес-данных",
+        image: "https://via.placeholder.com/300x200",
+        year: 2023
+    }
+];
+
+const galleryContainer = document.querySelector('.projects-gallery');
+
+if (galleryContainer) {
+    projects.forEach(project => {
+        const card = document.createElement('div');
+        card.classList.add('project-card');
+        
+        const img = document.createElement('img');
+        img.src = project.image;
+        img.alt = project.title;
+        img.loading = 'lazy';
+        
+        const title = document.createElement('h3');
+        title.textContent = project.title;
+        
+        const category = document.createElement('p');
+        category.textContent = project.category;
+        category.classList.add('project-category');
+        
+        const year = document.createElement('p');
+        year.textContent = `Год: ${project.year}`;
+        year.classList.add('project-year');
+        
+        const description = document.createElement('p');
+        description.textContent = project.description;
+        description.classList.add('project-description');
+        
+        card.append(img, title, category, year, description);
+        galleryContainer.append(card);
+    });
+}
